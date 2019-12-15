@@ -48,8 +48,8 @@ const Chat = ({ location }) => {
   console.log(message, messages);
 
   return (
-    <div className="outerContainer">
-      <div className="innerContainer">
+    <div className="chatOuterContainer">
+      <div className="chatInnerContainer">
         <InformationBar chatRoom={chatRoom}/>
         <input
         value={message}
