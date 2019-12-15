@@ -32,8 +32,19 @@ const Chat = ({ location }) => {
   useEffect(() => {
     theSocket.on('message', (message) => {
       setMessages([...messages, message]);
-    }, [messages])
-  })
+    })
+  }, [messages]);
+
+  const sendMsg = (event) => {
+    event.preventDefault();
+
+    if(message) {
+      theSocket.emit('sendMessage', message, () => setMessage(''));
+    }
+  }
+
+  console.log(message, messages);
+
   return (
     <div className="outerContainer">
       <div className="innerContainer">
