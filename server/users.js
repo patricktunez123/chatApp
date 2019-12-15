@@ -26,6 +26,4 @@ const removingUser = (id) => {
 
 const gettingUser = (id) => users.find((user) => user.id === id);
 
-const gettingUsersFromRoom = () => {
-
-}
+const gettingUsersFromRoom = (chatRoom) => users.filter((user) => user.chatRoom === chatRoom);
