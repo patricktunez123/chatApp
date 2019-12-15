@@ -35,7 +35,15 @@ const Chat = ({ location }) => {
     }, [messages])
   })
   return (
-    <h1>This is the chat component</h1>
+    <div className="outerContainer">
+      <div className="innerContainer">
+        <input
+        value={message}
+        onChange={(event) => setMessage(event.target.value)}
+        onKeyPress={event => event.key === 'Enter' ? sendMsg(event) : null}
+          />
+      </div>
+    </div>
   )
 }
 
