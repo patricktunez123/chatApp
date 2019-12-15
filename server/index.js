@@ -12,6 +12,10 @@ const io = socketio(srv);
 io.on('connection', (socket) => {
   console.log('new join');
 
+  socket.on('join', ({ username, chatRoom }) => {
+    console.log(username, chatRoom);
+  })
+
   socket.on('disconnect', () => {
     console.log('left the conversation');
   })
