@@ -22,6 +22,14 @@ io.on('connection', (socket) => {
     socket.join(user.chatRoom);
 
     callbackfn();
+  });
+
+  socket.on('sendMessage', (message, callbackfn) => {
+    const user = gettingUser(socket.id);
+
+    io.to(user.chatRoom).emit('message', { user: user.username, text: message });
+
+    callbackfn();
   })
 
   socket.on('disconnect', () => {
