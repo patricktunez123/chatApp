@@ -20,6 +20,11 @@ const Chat = ({ location }) => {
     theSocket.emit('join', { username, chatRoom }, () => {
       
     });
+
+    return () => {
+      theSocket.emit('disconnect');
+      theSocket.off();
+    }
   }, [url, location.search]);
 
   return (
