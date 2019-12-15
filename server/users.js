@@ -27,3 +27,10 @@ const removingUser = (id) => {
 const gettingUser = (id) => users.find((user) => user.id === id);
 
 const gettingUsersFromRoom = (chatRoom) => users.filter((user) => user.chatRoom === chatRoom);
+
+module.exports = {
+  addingUser,
+  removingUser,
+  gettingUser,
+  gettingUsersFromRoom
+}
