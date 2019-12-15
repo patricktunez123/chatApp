@@ -7,6 +7,8 @@ let theSocket;
 const Chat = ({ location }) => {
   const [username, setUserName] = useState('');
   const [chatRoom, setchatRoom] = useState('');
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
   const url = 'localhost:5500';
 
   useEffect(() => {
@@ -27,6 +29,11 @@ const Chat = ({ location }) => {
     }
   }, [url, location.search]);
 
+  useEffect(() => {
+    theSocket.on('message', (message) => {
+      setMessages([...messages, message]);
+    }, [messages])
+  })
   return (
     <h1>This is the chat component</h1>
   )
