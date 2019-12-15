@@ -11,10 +11,17 @@ const srv = http.createServer(app);
 const io = socketio(srv);
 
 io.on('connection', (socket) => {
-  console.log('new join');
+  socket.on('join', ({ username, chatRoom }, callbackfn) => {
+    const { error, user } = addingUser({ id: socket.id, username, chatRoom });
 
-  socket.on('join', ({ username, chatRoom }) => {
-    console.log(username, chatRoom);
+    if(error) return callbackfn(error);
+
+    socket.emit('message', { user: 'Admin', text: `${user.username}, Welcome to ${user.chatRoom}` });
+    socket.broadcast.to(user.chatRoom).emit('message', { user: 'Admin', text: `${user.username} has joined the conversation` });
+
+    socket.join(user.chatRoom);
+
+    callbackfn();
   })
 
   socket.on('disconnect', () => {
