@@ -4,6 +4,8 @@ import io, { Socket } from 'socket.io-client';
 
 let theSocket;
 
+import './Chat.css';
+
 const Chat = ({ location }) => {
   const [username, setUserName] = useState('');
   const [chatRoom, setchatRoom] = useState('');
