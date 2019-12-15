@@ -48,6 +48,7 @@ const Chat = ({ location }) => {
   return (
     <div className="outerContainer">
       <div className="innerContainer">
+        <InformationBar />
         <input
         value={message}
         onChange={(event) => setMessage(event.target.value)}
