@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import io, { Socket } from 'socket.io-client';
 
-let theSocket;
-
 import './Chat.css';
+import InformationBar from '../InformationBar/InformationBar';
+let theSocket;
 
 const Chat = ({ location }) => {
   const [username, setUserName] = useState('');
