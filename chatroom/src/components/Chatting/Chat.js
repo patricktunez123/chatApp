@@ -17,7 +17,14 @@ const Chat = ({ location }) => {
     setUserName(username);
     setchatRoom(chatRoom);
 
-    theSocket.emit('join', { username, chatRoom });
+    theSocket.emit('join', { username, chatRoom }, () => {
+      
+    });
+
+    return () => {
+      theSocket.emit('disconnect');
+      theSocket.off();
+    }
   }, [url, location.search]);
 
   return (
