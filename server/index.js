@@ -33,7 +33,11 @@ io.on('connection', (socket) => {
   })
 
   socket.on('disconnect', () => {
-    console.log('left the conversation');
+    const user = removingUser(socket.id);
+
+    if(user) {
+      io.to(user.chatRoom).emit('message', { user: 'Admin', text: `${user.username} has left the conversation` })
+    }
   })
 })
 
