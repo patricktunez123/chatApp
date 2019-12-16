@@ -21,6 +21,8 @@ io.on('connection', (socket) => {
 
     socket.join(user.chatRoom);
 
+    io.to(user.chatRoom).emit('chatRoomData', { chatRoom: user.chatRoom, users: gettingUsersFromRoom(user.chatRoom)})
+
     callbackfn();
   });
 
