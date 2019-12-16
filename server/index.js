@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
     const user = gettingUser(socket.id);
 
     io.to(user.chatRoom).emit('message', { user: user.username, text: message });
-
+    io.to(user.chatRoom).emit('chatRoomData', { chatRoom: user.chatRoom, users: gettingUsersFromRoom(user.chatRoom) });
     callbackfn();
   })
 
