@@ -15,7 +15,7 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const url = 'localhost:5500';
+  const url = 'localhost:5000';
 
   useEffect(() => {
     const { username, chatRoom } = queryString.parse(location.search);
