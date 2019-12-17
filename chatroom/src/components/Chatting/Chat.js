@@ -5,6 +5,7 @@ import io, { Socket } from 'socket.io-client';
 import './Chat.css';
 import InformationBar from '../InformationBar/InformationBar';
 import Input from '../InputComponent/Input';
+import UsersContainer from '../UsersContainer/UsersContainer';
 import Messages from '../MessagesComponent/Messages';
 let theSocket;
 
@@ -56,6 +57,7 @@ const Chat = ({ location }) => {
         <Messages messages={messages} username={username} />
         <Input message={message} setMessage={setMessage} sendMsg={sendMsg} />
       </div>
+      <UsersContainer users={users}/>
     </div>
   )
 }
