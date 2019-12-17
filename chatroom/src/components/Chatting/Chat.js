@@ -5,12 +5,14 @@ import io, { Socket } from 'socket.io-client';
 import './Chat.css';
 import InformationBar from '../InformationBar/InformationBar';
 import Input from '../InputComponent/Input';
+import UsersContainer from '../UsersContainer/UsersContainer';
 import Messages from '../MessagesComponent/Messages';
 let theSocket;
 
 const Chat = ({ location }) => {
   const [username, setUserName] = useState('');
   const [chatRoom, setchatRoom] = useState('');
+  const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const url = 'localhost:5500';
@@ -37,6 +39,16 @@ const Chat = ({ location }) => {
     theSocket.on('message', (message) => {
       setMessages([...messages, message]);
     })
+
+    theSocket.on('chatRoomData', ({ users }) => {
+      setUsers(users);
+    })
+
+    return () => {
+      theSocket.emit('disconnect');
+
+      theSocket.off();
+    }
   }, [messages]);
 
   const sendMsg = (event) => {
@@ -56,6 +68,7 @@ const Chat = ({ location }) => {
         <Messages messages={messages} username={username} />
         <Input message={message} setMessage={setMessage} sendMsg={sendMsg} />
       </div>
+      <UsersContainer users={users}/>
     </div>
   )
 }
