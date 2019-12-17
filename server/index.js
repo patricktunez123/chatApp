@@ -21,6 +21,8 @@ io.on('connection', (socket) => {
 
     socket.join(user.chatRoom);
 
+    io.to(user.chatRoom).emit('chatRoomData', { chatRoom: user.chatRoom, users: gettingUsersFromRoom(user.chatRoom)})
+
     callbackfn();
   });
 
@@ -28,12 +30,16 @@ io.on('connection', (socket) => {
     const user = gettingUser(socket.id);
 
     io.to(user.chatRoom).emit('message', { user: user.username, text: message });
-
+    io.to(user.chatRoom).emit('chatRoomData', { chatRoom: user.chatRoom, users: gettingUsersFromRoom(user.chatRoom) });
     callbackfn();
   })
 
   socket.on('disconnect', () => {
-    console.log('left the conversation');
+    const user = removingUser(socket.id);
+
+    if(user) {
+      io.to(user.chatRoom).emit('message', { user: 'Admin', text: `${user.username} has left the conversation` })
+    }
   })
 })
 
