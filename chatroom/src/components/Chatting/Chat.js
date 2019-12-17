@@ -12,6 +12,7 @@ let theSocket;
 const Chat = ({ location }) => {
   const [username, setUserName] = useState('');
   const [chatRoom, setchatRoom] = useState('');
+  const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const url = 'localhost:5500';
@@ -38,6 +39,16 @@ const Chat = ({ location }) => {
     theSocket.on('message', (message) => {
       setMessages([...messages, message]);
     })
+
+    theSocket.on('chatRoomData', ({ users }) => {
+      setUsers(users);
+    })
+
+    return () => {
+      theSocket.emit('disconnect');
+
+      theSocket.off();
+    }
   }, [messages]);
 
   const sendMsg = (event) => {
