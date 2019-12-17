@@ -6,7 +6,7 @@ import './UsersContainer.css';
 const UsersContainer = ({ users }) => (
   <div className="usersContainer">
     <div>
-      <h1>chatApp</h1>
+      <h2>chatApp</h2>
       <h5>chatApp helps u to connect with your friends wherever they are!, Try it out right now!</h5>
     </div>
     {
