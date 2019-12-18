@@ -28,7 +28,7 @@ const gettingUser = (id) => users.find((user) => user.id === id);
 
 const gettingUsersFromRoom = (chatRoom) => users.filter((user) => user.chatRoom === chatRoom);
 
-export default {
+module.exports = {
   addingUser,
   removingUser,
   gettingUser,
