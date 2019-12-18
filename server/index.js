@@ -1,9 +1,9 @@
-const express = require('express');
-const dotEnv = require('dotenv');
-const socketio = require('socket.io');
-const http = require('http');
-const { addingUser, removingUser, gettingUser, gettingUsersFromRoom } = require('./users');
-const router = require('./router');
+import express from 'express';
+import dotEnv from 'dotenv';
+import socketio from 'socket.io';
+import http from 'http';
+import { addingUser, removingUser, gettingUser, gettingUsersFromRoom } from './users';
+import router from './router';
 
 dotEnv.config();
 
