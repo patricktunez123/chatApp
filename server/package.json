@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "devStart": "nodemon index.js"
+    "start": "node --require babel-core/register --require babel-polyfill index.js",
+    "devStart": "nodemon --require babel-core/register --require babel-polyfill index.js"
   },
   "repository": {
     "type": "git",
