@@ -41,7 +41,7 @@ html, body {
   -webkit-text-fill-color: transparent;
   font-size: 1.5em;
   padding-bottom: 10px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #d5dde0;
 }
 
 .btn {
