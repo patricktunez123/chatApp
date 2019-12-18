@@ -8,7 +8,7 @@ const Join = () => {
   return (
     <div className="outerContainer">
       <div className="innerContainer">
-        <h1 className="headingTitle">Join chatRoom</h1>
+        <h5 className="headingTitle">Connect with your friends</h5>
         <div><input placeholder="Username" className="joiningInput" type="text" onChange={(event) => setUserName(event.target.value)} /></div>
         <div><input placeholder="ChatRoom" className="joiningInput mt-20" type="text" onChange={(event) => setchatRoom(event.target.value)} /></div>
         <Link onClick={event => (!username || !chatRoom) ? event.preventDefault() : null} to={`/Chat?username=${username}&chatRoom=${chatRoom}`}>
