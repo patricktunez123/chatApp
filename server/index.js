@@ -3,7 +3,7 @@ const dotEnv = require('dotenv');
 const socketio = require('socket.io');
 const http = require('http');
 const { addingUser, removingUser, gettingUser, gettingUsersFromRoom } = require('./users');
-const router = require('./router');
+const router =require ('./router');
 
 dotEnv.config();
 
