@@ -35,7 +35,9 @@ html, body {
   width: 100%;
   font-size: 15px;
 }
-
+input[type=text]::placeholder{
+  color: lightgray;
+}
 .headingTitle {
   font-weight: 701;
   background: -webkit-linear-gradient(-225deg, #a3c73f 0%, rgb(27, 173, 93) 29%, rgb(57, 99, 55) 67%, rgb(110, 9, 9) 100%);
