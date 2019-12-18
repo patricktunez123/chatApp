@@ -43,6 +43,10 @@ Then cd back into the package folder then cd into chatroom folder using your ter
 
 It will install the node_modules which will help you run this project on your local machine.
 
+## Add invironment variables
+
+Create a file called .env in server directory and then in that file type PORT=YOUR_FAVORITE_PORT where YOUR_FAVORITE_PORT is equal to any port number you prefer and save it.
+
 ## Run the server
 cd into server folder then run the following comand
 
