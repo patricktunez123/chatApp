@@ -18,7 +18,7 @@ const UsersContainer = ({ users }) => (
               <h4>
                 {users.map(({username}) => (
                   <div key={username} className="activeItem">
-                    {username}
+                    @{username}
                     <img alt="Online" src={onlineImg}/>
                   </div>
                 ))}
