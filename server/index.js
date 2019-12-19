@@ -19,7 +19,7 @@ io.on('connection', (socket) => {
 
     if(error) return callbackfn(error);
 
-    socket.emit('message', { user: 'Admin', text: `${user.username}, Welcome to ${user.chatRoom}` });
+    socket.emit('message', { user: 'Admin', text: `${user.username}, Welcome to ${user.chatRoom} Group` });
     socket.broadcast.to(user.chatRoom).emit('message', { user: 'Admin', text: `${user.username} has joined the conversation` });
 
     socket.join(user.chatRoom);
