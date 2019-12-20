@@ -3,8 +3,8 @@ const dotEnv = require('dotenv');
 const socketio = require('socket.io');
 const http = require('http');
 const cors = require('cors');
-const { addingUser, removingUser, gettingUser, gettingUsersFromRoom } = require('./users');
-const router =require ('./router');
+const { addingUser, removingUser, gettingUser, gettingUsersFromRoom } = require('./server/users');
+const router =require ('./server/router');
 
 dotEnv.config();
 
