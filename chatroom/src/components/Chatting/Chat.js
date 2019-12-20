@@ -15,7 +15,7 @@ const Chat = ({ location }) => {
   const [users, setUsers] = useState('');
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
-  const url = 'localhost:5000';
+  const url = 'https://chatapp2020.herokuapp.com/';
 
   useEffect(() => {
     const { username, chatRoom } = queryString.parse(location.search);
