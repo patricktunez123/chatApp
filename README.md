@@ -53,6 +53,8 @@ cd into server folder then run the following comand
 - npm run devStart
 
 ## Run the frontend
+Go in chatroom folder, src, components, chatting, then Chat.js and then change const url = 'https://chatapp2020.herokuapp.com/' to const url = 'localhost:YOUR_PORT' where YOUR_PORT is the port that you have set in .env file
+
 cd into chatroom folder then run the following comand
 
 - npm start
